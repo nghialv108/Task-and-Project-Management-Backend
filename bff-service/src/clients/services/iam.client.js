@@ -14,8 +14,8 @@ const getProfile = (user) =>
 const getUserById = (userId, user) =>
   http.get(BASE, `/iam/users/${userId}`, user);
 
-const getWorkspaceMembers = (workspaceId) =>
-  http.get(BASE, `/iam/workspace/${workspaceId}/members`);
+const getWorkspaceMembers = (workspaceId, user) =>
+  http.get(BASE, `/iam/workspaces/${workspaceId}/members`, user);
 
 const getMyWorkspace = (user) =>
   http.get(BASE, `/iam/workspaces/mine`, user);

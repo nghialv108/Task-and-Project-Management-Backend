@@ -6,7 +6,7 @@ const env       = require('../config/environment');
  */
 const globalLimiter = rateLimit({
   windowMs: env.RATE_LIMIT_WINDOW_MS,
-  max:      env.RATE_LIMIT_MAX,
+  max:      1000,
   standardHeaders: true,
   legacyHeaders:   false,
   message: {
@@ -21,7 +21,7 @@ const globalLimiter = rateLimit({
  */
 const authLimiter = rateLimit({
   windowMs: 60_000,
-  max: 10,
+  max: 1000,
   standardHeaders: true,
   legacyHeaders:   false,
   message: {

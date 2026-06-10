@@ -65,7 +65,7 @@ app.get('/health/all', async (_, res) => {
 // ─── Internal cache invalidation — không qua auth (từ V1) ────────────────────
 // IAM gọi endpoint này sau mỗi lần membership thay đổi
 // Bảo vệ bằng x-internal-secret bên trong handler
-app.post('/internal/cache/invalidate', invalidateCacheHandler);
+app.post('/internal/cache/invalidate', express.json(), invalidateCacheHandler);
 
 // ─── Auth ─────────────────────────────────────────────────────────────────────
 app.use(authMiddleware);

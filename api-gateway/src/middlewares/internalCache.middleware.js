@@ -16,7 +16,7 @@ const invalidateCacheHandler = async (req, res) => {
     return res.status(403).json({ success: false, message: 'Forbidden' });
   }
 
-  const { userId, workspaceId } = req.body;
+  const { userId, workspaceId } = req.body || {};
   if (!userId || !workspaceId) {
     return res.status(400).json({ success: false, message: 'userId and workspaceId required' });
   }
